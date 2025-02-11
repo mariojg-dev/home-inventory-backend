@@ -1,4 +1,4 @@
-package com.liftdevelops.homeitems.model;
+package com.liftdevelops.homeitems.user.model;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "homeInvUser")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Nonnull
     @Column(unique = true)

@@ -1,4 +1,4 @@
-package com.liftdevelops.homeitems;
+package com.liftdevelops.homeitems.user;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
