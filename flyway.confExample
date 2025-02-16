@@ -1,0 +1,9 @@
+# Rename file to flyway.conf
+# Locate the file in the root folder of the project
+# Fill up the fields
+# Run mi
+flyway.user=
+flyway.password=
+flyway.schemas=
+flyway.url=
+flyway.locations=filesystem:db/migration
