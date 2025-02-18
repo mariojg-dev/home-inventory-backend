@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Community Forum"
+    url: "https://github.com/mariojg-dev/home-inventory-backend/discussions"
+    about: "For questions and general discussions."

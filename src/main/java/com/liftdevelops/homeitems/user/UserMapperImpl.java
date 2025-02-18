@@ -1,6 +1,7 @@
 package com.liftdevelops.homeitems.user;
 
 import com.liftdevelops.homeitems.user.dto.UserDto;
+import com.liftdevelops.homeitems.user.dto.UserResponseDto;
 import com.liftdevelops.homeitems.user.model.UserEntity;
 import com.liftdevelops.homeitems.util.Mapper;
 import org.modelmapper.ModelMapper;
@@ -23,5 +24,9 @@ public class UserMapperImpl implements Mapper<UserEntity, UserDto> {
     @Override
     public UserEntity mapFrom(UserDto userDto) {
         return modelMapper.map(userDto, UserEntity.class);
+    }
+
+    public UserResponseDto mapToUserResponseDto(UserEntity userEntity) {
+        return new UserResponseDto(userEntity.getId(), userEntity.getUsername(), userEntity.getEmail());
     }
 }

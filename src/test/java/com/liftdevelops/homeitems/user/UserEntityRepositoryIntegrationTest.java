@@ -20,7 +20,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @TestPropertySource(
         locations = "classpath:application.properties"
 )
-public class UserEntityRepositoryIntegrationTest {
+class UserEntityRepositoryIntegrationTest {
 
     @Autowired
     private UserRepository userRepository;
@@ -32,7 +32,7 @@ public class UserEntityRepositoryIntegrationTest {
 
     @Test
     void testThatUserCanBeCreatedAndRetrieved() {
-        UserEntity userEntity = TestDataUtil.createTestUserA();
+        UserEntity userEntity = TestDataUtil.createTestUserEntityA();
         userRepository.save(userEntity);
     }
 

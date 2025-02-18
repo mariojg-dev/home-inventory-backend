@@ -19,7 +19,7 @@ target/
 *.iml
 *.ipr
 *.env
-*.conf
+flyway.conf
 
 ### NetBeans ###
 /nbproject/private/

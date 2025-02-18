@@ -2,7 +2,7 @@ package com.liftdevelops.homeitems.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.liftdevelops.homeitems.TestDataUtil;
-import com.liftdevelops.homeitems.user.model.UserEntity;
+import com.liftdevelops.homeitems.user.dto.UserDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @ExtendWith(SpringExtension.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @AutoConfigureMockMvc
-public class UserControllerIntegrationTest {
+class UserControllerIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -28,12 +28,11 @@ public class UserControllerIntegrationTest {
 
     @Test
     void testThatCreateUserSuccessfullyThenReturnsHttp201Created() throws Exception {
-        UserEntity userEntity = TestDataUtil.createTestUserA();
-        userEntity.setId(null);
-        String userJson = objectMapper.writeValueAsString(userEntity);
+        UserDto userDto = TestDataUtil.createTestUserDtoA();
+        String userJson = objectMapper.writeValueAsString(userDto);
 
         mockMvc.perform(
-                MockMvcRequestBuilders.post("/users")
+                MockMvcRequestBuilders.post("/api/v1/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(userJson)
         ).andExpect(MockMvcResultMatchers.status().isCreated());
@@ -41,12 +40,11 @@ public class UserControllerIntegrationTest {
 
     @Test
     void testThatCreateUserSuccessfullyThenReturnsSavedUser() throws Exception {
-        UserEntity userEntity = TestDataUtil.createTestUserA();
-        userEntity.setId(null);
-        String userJson = objectMapper.writeValueAsString(userEntity);
+        UserDto userDto = TestDataUtil.createTestUserDtoA();
+        String userJson = objectMapper.writeValueAsString(userDto);
 
         mockMvc.perform(
-                MockMvcRequestBuilders.post("/users")
+                MockMvcRequestBuilders.post("/api/v1/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(userJson)
         ).andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber()
