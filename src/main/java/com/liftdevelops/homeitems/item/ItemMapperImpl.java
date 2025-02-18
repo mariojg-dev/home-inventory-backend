@@ -2,7 +2,9 @@ package com.liftdevelops.homeitems.item;
 
 import com.liftdevelops.homeitems.util.Mapper;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 class ItemMapperImpl implements Mapper<ItemEntity, ItemDto> {
 
     private final ModelMapper modelMapper;
