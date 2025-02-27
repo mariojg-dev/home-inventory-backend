@@ -2,6 +2,7 @@ package com.liftdevelops.homeitems;
 
 import com.liftdevelops.homeitems.item.ItemDto;
 import com.liftdevelops.homeitems.item.ItemEntity;
+import com.liftdevelops.homeitems.storage.ContainerEntity;
 import com.liftdevelops.homeitems.user.dto.UserDto;
 import com.liftdevelops.homeitems.user.model.Role;
 import com.liftdevelops.homeitems.user.model.UserEntity;
@@ -12,7 +13,6 @@ public class TestDataUtil {
 
     public static UserEntity createTestUserEntityA() {
         UserEntity userEntity = new UserEntity();
-        userEntity.setId(1L);
         userEntity.setEmail("email@gmail.com");
         userEntity.setRole(Role.ADMIN);
         userEntity.setUsername("TestUser");
@@ -43,12 +43,18 @@ public class TestDataUtil {
     public static ItemDto createTestItemDtoA() {
         return ItemDto.builder()
                 .category("Cable")
-                .id(1L)
                 .color("Blue")
-                .ownerId(1L) // Assuming createTestUserA() returns the appropriate DTO
                 .price(BigDecimal.valueOf(19.99))
                 .name("USB C to C")
                 .description("25th Cable in der Schublade")
                 .build();
+    }
+
+    public static ContainerEntity createTestContainerA() {
+        ContainerEntity containerEntity = new ContainerEntity();
+        containerEntity.setName("Schublade");
+        containerEntity.setColor("Black");
+        containerEntity.setLocation("Wohnzimmer");
+        return containerEntity;
     }
 }
